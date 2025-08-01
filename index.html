@@ -4,154 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="./output.css" />
+    <script src="./main.js" defer></script>
+
     <title>Document</title>
   </head>
   <body
     class="min-h-screen flex flex-col items-center justify-center gap-6 bg-[#1a2b32] px-4 py-8"
   >
-    <!-- Encabezado XO -->
-    <div class="flex gap-2 text-4xl md:text-5xl font-bold lg:text-9xl">
-      <span class="text-[#30c4c1]">X</span>
-      <span class="text-yellow-400">O</span>
+    <!-- Mensaje del turno o resultado -->
+    <div id="message" class="text-white text-xl font-bold text-center mb-4">
+      Turno: X
     </div>
 
-    <!-- Selector de marca -->
-    <div
-      class="bg-[#1f3641] rounded-lg p-6 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg text-center shadow-lg"
+    <!-- Tablero 3x3 -->
+    <div id="board" class="grid grid-cols-3 gap-3 md:gap-6 lg:gap-12 mb-6">
+      <!-- Casillas generadas dinámicamente -->
+    </div>
+
+    <!-- Botón de reinicio -->
+    <button
+      id="reset"
+      class="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-2 rounded mt-4"
     >
-      <h2 class="text-sm md:text-2xl lg:text-4xl text-gray-300 mb-4">
-        PICK PLAYER 1'S MARK
-      </h2>
-      <div
-        class="bg-[#1f2a36] rounded-lg flex items-center justify-between p-2 mb-3"
-      >
-        <button
-          class="flex-1 text-2xl md:text-3xl lg:text-6xl py-2 rounded-lg text-gray-300 hover:bg-[#30c4c1] hover:text-white transition"
-        >
-          X
-        </button>
-        <button
-          class="flex-1 text-2xl md:text-3xl lg:text-6xl py-2 rounded-lg bg-gray-300 text-[#2f3e4e] font-bold hover:bg-[#30c4c1] hover:text-white transition"
-        >
-          O
-        </button>
-      </div>
-      <p class="text-sm text-gray-400 md:text-2xl lg:text-4xl">
-        REMEMBER: X GOES FIRST
-      </p>
-    </div>
-
-    <!-- Botones de nueva partida -->
-    <div
-      class="flex flex-col gap-4 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
-    >
-      <button
-        class="bg-[#f1b336] hover:bg-yellow-500 text-[#1f2a36] font-bold py-3 rounded-lg transition"
-      >
-        NEW GAME (VS CPU)
-      </button>
-      <button
-        class="bg-[#30c4c1] hover:bg-[#2f9899] text-[#1f2a36] font-bold py-3 rounded-lg transition"
-      >
-        NEW GAME (VS PLAYER)
-      </button>
-
-      <!-- Contenedor del tablero -->
-      <div
-        class="bg-gray-800 p-6 rounded-xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto"
-      >
-        <!-- Header con íconos y botón -->
-        <div class="flex justify-between items-center mb-6">
-          <div class="flex space-x-2">
-            <div class="w-5 h-5 bg-[#f1b336] rounded-full"></div>
-            <div class="w-5 h-5 bg-[#30c4c1] rounded-full"></div>
-          </div>
-          <button class="bg-gray-700 text-white text-xs px-4 py-1 rounded">
-            TURN
-          </button>
-          <button class="bg-gray-700 w-6 h-6 rounded text-xs font-bold">
-            ↻
-          </button>
-        </div>
-
-        <!-- Tablero 3x3 -->
-        <div class="grid grid-cols-3 gap-3 md:gap-6 lg:gap-12 mb-6">
-          <!-- Casilla vacía -->
-          <div
-            class="w-20 h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 bg-gray-700 rounded"
-          ></div>
-
-          <!-- X -->
-          <div
-            class="w-20 h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 bg-gray-700 rounded flex items-center justify-center text-4xl md:text-5xl lg:text-6xl text-[#30c4c1] font-bold"
-          >
-            X
-          </div>
-
-          <!-- O -->
-          <div
-            class="w-20 h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 bg-gray-700 rounded flex items-center justify-center text-4xl md:text-5xl lg:text-6xl text-[#f1b336] font-bold"
-          >
-            O
-          </div>
-
-          <!-- X -->
-          <div
-            class="w-20 h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 bg-gray-700 rounded flex items-center justify-center text-4xl md:text-5xl lg:text-6xl text-[#30c4c1] font-bold"
-          >
-            X
-          </div>
-
-          <!-- O -->
-          <div
-            class="w-20 h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 bg-gray-700 rounded flex items-center justify-center text-4xl md:text-5xl lg:text-6xl text-[#f1b336] font-bold"
-          >
-            O
-          </div>
-
-          <!-- X -->
-          <div
-            class="w-20 h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 bg-gray-700 rounded flex items-center justify-center text-4xl md:text-5xl lg:text-6xl text-[#30c4c1] font-bold"
-          >
-            X
-          </div>
-
-          <!-- Casilla vacía -->
-          <div
-            class="w-20 h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 bg-gray-700 rounded"
-          ></div>
-
-          <!-- O -->
-          <div
-            class="w-20 h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 bg-gray-700 rounded flex items-center justify-center text-4xl md:text-5xl lg:text-6xl text-[#f1b336] font-bold"
-          >
-            O
-          </div>
-
-          <!-- X -->
-          <div
-            class="w-20 h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 bg-gray-700 rounded flex items-center justify-center text-4xl md:text-5xl lg:text-6xl text-[#30c4c1] font-bold"
-          >
-            X
-          </div>
-        </div>
-
-        <!-- Puntajes -->
-        <div
-          class="grid grid-cols-3 gap-2 text-center text-xs md:text-sm font-semibold"
-        >
-          <div class="bg-[#30c4c1] text-white py-2 rounded">
-            X (YOU)<br /><span class="text-lg md:text-xl">14</span>
-          </div>
-          <div class="bg-gray-300 text-gray-800 py-2 rounded">
-            TIES<br /><span class="text-lg md:text-xl">32</span>
-          </div>
-          <div class="bg-[#f1b336] text-gray-900 py-2 rounded">
-            O (CPU)<br /><span class="text-lg md:text-xl">11</span>
-          </div>
-        </div>
-      </div>
-    </div>
+      Reiniciar Juego
+    </button>
   </body>
 </html>
